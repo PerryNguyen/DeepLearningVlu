@@ -24,11 +24,6 @@ def classify_images(image_path):
     result = tf.nn.softmax(predictions[0])
     predicted_label = np.argmax(result)
     predicted_flower = flower_names[predicted_label]
-    
-    if predicted_flower not in flower_names:
-        st.error("Ảnh không thuộc loại hoa đã biết: ['daisy', 'sunflower', 'tulip']. Dừng chương trình.")
-        st.stop()
-
     outcome = f"Bức ảnh này là {predicted_flower} với độ chính xác {np.max(result)*100:.2f}%"
     return outcome
 
